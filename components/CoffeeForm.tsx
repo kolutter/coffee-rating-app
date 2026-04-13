@@ -7,18 +7,20 @@ import RatingStars from "./RatingStars";
 
 interface CoffeeFormProps {
   coffee?: Coffee | null;
+  initialName?: string;
   onSave: () => void;
   onCancel: () => void;
 }
 
 export default function CoffeeForm({
   coffee,
+  initialName,
   onSave,
   onCancel,
 }: CoffeeFormProps) {
   const isEditing = !!coffee;
 
-  const [name, setName] = useState(coffee?.name || "");
+  const [name, setName] = useState(coffee?.name || initialName || "");
   const [price, setPrice] = useState(coffee?.price?.toString() || "");
   const [rating, setRating] = useState(coffee?.rating || 3.0);
   const [description, setDescription] = useState(coffee?.description || "");

@@ -10,6 +10,13 @@ export interface Coffee {
   created_at: string;
 }
 
+export interface WishlistItem {
+  id: string;
+  name: string;
+  notes: string | null;
+  created_at: string;
+}
+
 export type CoffeeInsert = Omit<Coffee, "id" | "created_at">;
 
 export type SortOption =
